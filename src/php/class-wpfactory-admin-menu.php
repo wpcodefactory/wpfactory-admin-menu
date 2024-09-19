@@ -108,11 +108,11 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 			\add_menu_page(
 				$this->get_page_title(),
 				$this->get_menu_title(),
-				'manage_options',
+				$this->get_capability(),
 				$this->get_menu_slug(),
 				array( $this, 'render_page' ),
 				$this->get_icon_url(),
-				64
+				$this->get_position()
 			);
 
 			// Removes submenu page.
