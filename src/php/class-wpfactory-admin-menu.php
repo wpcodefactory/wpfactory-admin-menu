@@ -23,6 +23,8 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 	 */
 	class WPFactory_Admin_Menu {
 
+		use Singleton;
+
 		/**
 		 * Admin page slug.
 		 *
@@ -33,16 +35,16 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		protected $admin_page_slug = 'wpfactory';
 
 		/**
-		 * Initializes the class.
+		 * Constructor.
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 *
-		 * @return void
 		 */
-		function init() {
+		protected function __construct() {
+
 			// WPFactory admin page.
 			add_action( 'admin_menu', array( $this, 'create_wpfactory_admin_menu' ) );
+			
 		}
 
 		/**
