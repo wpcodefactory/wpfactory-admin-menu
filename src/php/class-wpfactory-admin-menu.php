@@ -80,6 +80,15 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		protected $position = 64;
 
 		/**
+		 * $wc_settings_menu_item_swapper.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @var WC_Settings_Menu_Item_Swapper
+		 */
+		protected $wc_settings_menu_item_swapper = null;
+
+		/**
 		 * Constructor.
 		 *
 		 * @version 1.0.0
@@ -94,6 +103,33 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 
 			// WPFactory admin page.
 			add_action( 'admin_menu', array( $this, 'create_wpfactory_admin_menu' ), 9 );
+		}
+
+		public function add_wc_settings_menu_item( $args = null ) {
+			if ( is_null( $this->wc_settings_menu_item_swapper ) ) {
+				$this->wc_settings_menu_item_swapper = new WC_Settings_Menu_Item_Swapper();
+			}
+			$args                       = wp_parse_args( $args, array(
+				'wc_settings_tab_id' => '',
+				'menu_title'         => '',
+				'capability'         => 'manage_options',
+				'position'           => 30,
+			) );
+			$replacement_menu_item_slug = 'admin.php?page=wc-settings&tab=' . $args['wc_settings_tab_id'];
+			\add_submenu_page(
+				$this->menu_slug,
+				$args['menu_title'],
+				$args['menu_title'],
+				$args['capability'],
+				'admin.php?page=wc-settings&tab=alg_wc_cost_of_goods',
+				'',
+				30
+			);
+			$this->wc_settings_menu_item_swapper->swap( array(
+				'wc_settings_tab_id'         => $args['wc_settings_tab_id'],
+				'replacement_menu_item_slug' => ''
+			) );
+			$this->wc_settings_menu_item_swapper->init();
 		}
 
 		/**
