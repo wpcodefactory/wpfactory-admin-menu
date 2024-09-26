@@ -200,7 +200,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		public function localize() {
 			$domain = 'wpfactory-admin-menu';
 			$locale = get_locale();
-			$mofile = dirname( __FILE__ ) . '/langs/' . $domain . '-' . $locale . '.mo';
+			$mofile = dirname( $this->get_library_file_path() ) . '/langs/' . $domain . '-' . $locale . '.mo';
 			load_textdomain( $domain, $mofile );
 		}
 
@@ -358,6 +358,18 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		 */
 		public function get_version() {
 			return $this->version;
+		}
+
+		/**
+		 * get_file_path.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 *
+		 * @return string
+		 */
+		function get_library_file_path() {
+			return dirname( __FILE__, 2 );
 		}
 	}
 }
