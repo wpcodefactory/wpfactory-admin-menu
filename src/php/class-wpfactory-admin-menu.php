@@ -142,7 +142,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 				$args['capability'],
 				$replacement_menu_item_slug,
 				'',
-				30
+				$args['position']
 			);
 			$this->wc_settings_menu_item_swapper->swap( array(
 				'wc_settings_tab_id'         => $args['wc_settings_tab_id'],
