@@ -9,9 +9,7 @@
 
 namespace WPFactory\WPFactory_Admin_Menu;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-} // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! trait_exists( 'WPFactory\WPFactory_Admin_Menu\Singleton' ) ) {
 

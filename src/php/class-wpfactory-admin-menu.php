@@ -2,16 +2,14 @@
 /**
  * WPFactory Admin Menu
  *
- * @version 1.0.0
+ * @version 1.0.1
  * @since   1.0.0
  * @author  WPFactory
  */
 
 namespace WPFactory\WPFactory_Admin_Menu;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-} // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 
@@ -24,6 +22,15 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 	class WPFactory_Admin_Menu {
 
 		use Singleton;
+
+		/**
+		 * Version.
+		 *
+		 * @since   1.0.1
+		 *
+		 * @var string
+		 */
+		protected $version = '1.0.1';
 
 		/**
 		 * Menu slug.
@@ -95,6 +102,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		 * @since   1.0.0
 		 */
 		protected function __construct() {
+			$this->localize();
 
 			// Setups add_menu_page params.
 			$this->set_menu_title( __( 'WPFactory', 'wpfactory-admin-menu' ) );
@@ -105,12 +113,23 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 			add_action( 'admin_menu', array( $this, 'create_wpfactory_admin_menu' ), 9 );
 		}
 
-		public function add_wc_settings_menu_item( $args = null ) {
+		/**
+		 * Adds WooCommerce Settings tab as WPFactory submenu item.
+		 *
+		 * @version 1.0.1
+		 * @since   1.0.0
+		 *
+		 * @param $args
+		 *
+		 * @return void
+		 */
+		public function add_wc_settings_tab_as_submenu_item( $args = null ) {
 			if ( is_null( $this->wc_settings_menu_item_swapper ) ) {
 				$this->wc_settings_menu_item_swapper = new WC_Settings_Menu_Item_Swapper();
 			}
 			$args                       = wp_parse_args( $args, array(
 				'wc_settings_tab_id' => '',
+				'page_title'         => __( 'WPFactory plugins settings', 'wpfactory-admin-menu' ),
 				'menu_title'         => '',
 				'capability'         => 'manage_options',
 				'position'           => 30,
@@ -127,7 +146,8 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 			);
 			$this->wc_settings_menu_item_swapper->swap( array(
 				'wc_settings_tab_id'         => $args['wc_settings_tab_id'],
-				'replacement_menu_item_slug' => $replacement_menu_item_slug
+				'replacement_menu_item_slug' => $replacement_menu_item_slug,
+				'page_title'                 => $args['page_title']
 			) );
 			$this->wc_settings_menu_item_swapper->init();
 		}
@@ -167,6 +187,21 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		 */
 		function render_page() {
 
+		}
+
+		/**
+		 * Localizes the plugin.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 *
+		 * @return void
+		 */
+		public function localize() {
+			$domain = 'wpfactory-admin-menu';
+			$locale = get_locale();
+			$mofile = dirname( __FILE__ ) . '/langs/' . $domain . '-' . $locale . '.mo';
+			load_textdomain( $domain, $mofile );
 		}
 
 		/**
@@ -313,6 +348,16 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 			$this->position = $position;
 		}
 
-
+		/**
+		 * get_version.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 *
+		 * @return string
+		 */
+		public function get_version() {
+			return $this->version;
+		}
 	}
 }
