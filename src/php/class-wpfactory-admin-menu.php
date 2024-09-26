@@ -121,13 +121,13 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 				$args['menu_title'],
 				$args['menu_title'],
 				$args['capability'],
-				'admin.php?page=wc-settings&tab=alg_wc_cost_of_goods',
+				$replacement_menu_item_slug,
 				'',
 				30
 			);
 			$this->wc_settings_menu_item_swapper->swap( array(
 				'wc_settings_tab_id'         => $args['wc_settings_tab_id'],
-				'replacement_menu_item_slug' => ''
+				'replacement_menu_item_slug' => $replacement_menu_item_slug
 			) );
 			$this->wc_settings_menu_item_swapper->init();
 		}
