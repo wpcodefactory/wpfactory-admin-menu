@@ -70,15 +70,17 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WC_Settings_Menu_Item_Swapp
 		 * @return void
 		 */
 		function add_page_title() {
-			global $plugin_page;
 			if (
-				'wc-settings' === $plugin_page &&
+				isset( $_GET['page'] ) &&
+				'wc-settings' === $_GET['page'] &&
 				isset( $_GET['tab'] ) &&
 				! empty( $found_items = wp_list_filter( $this->args, array( 'wc_settings_tab_id' => $_GET['tab'] ) ) )
 			) {
 				$first_item = reset( $found_items );
 				$page_title = $first_item['page_title'];
-				echo '<div class="wrap"><h1>' . esc_html( $page_title ) . '</h1></div>';
+				if ( ! empty( $page_title ) ) {
+					echo '<div class="wrap"><h1>' . esc_html( $page_title ) . '</h1></div>';
+				}
 			}
 		}
 
