@@ -99,12 +99,13 @@ Adds WooCommerce Settings tab as a WPFactory submenu item.
 **Example:**
 
 ```php
-if ( ! is_admin() ) {
-  return;
+if ( is_admin() ) {
+    $wpf_admin_menu = \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
+    if ( method_exists( $wpf_admin_menu, 'add_wc_settings_tab_as_submenu_item' ) ) {
+        $wpf_admin_menu->add_wc_settings_tab_as_submenu_item( array(
+            'wc_settings_tab_id' => 'alg_wc_cost_of_goods',
+            'menu_title'         => 'Cost of Goods',
+        ) );
+    }
 }
-$wpf_admin_menu = \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
-$wpf_admin_menu->add_wc_settings_tab_as_submenu_item( array(
-  'wc_settings_tab_id' => 'alg_wc_left_to_free_shipping',
-  'menu_title'         => 'Left For Free Shipping',
-) );
 ```
