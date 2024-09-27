@@ -129,7 +129,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WC_Settings_Menu_Item_Swapp
 				$tab_ids          = array_column( $this->args, 'wc_settings_tab_id' );
 				$css_selector_arr = array();
 				foreach ( $tab_ids as $tab ) {
-					$css_selector_arr[] = '.wrap.woocommerce a[href*="tab=' . $tab . '"]';
+					$css_selector_arr[] = '.wrap.woocommerce .nav-tab-wrapper a[href*="tab=' . $tab . '"]';
 				}
 
 				?>
@@ -158,12 +158,19 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WC_Settings_Menu_Item_Swapp
 				isset( $_GET['tab'] ) &&
 				! empty( $found_items = wp_list_filter( $this->args, array( 'wc_settings_tab_id' => $_GET['tab'] ) ) )
 			) {
-				$first_item         = reset( $found_items );
-				$wc_settings_tab_id = $first_item['wc_settings_tab_id'];
+				$tab_ids          = array_column( $this->args, 'wc_settings_tab_id' );
+				$css_selector_arr = array();
+				foreach ( $tab_ids as $tab ) {
+					$css_selector_arr[] = '.wrap.woocommerce .nav-tab-wrapper a[href*="tab=' . $tab . '"]';
+				}
 				?>
 				<style>
-					.wrap.woocommerce a:not([href*="tab=<?php echo $wc_settings_tab_id; ?>"]) {
-						display: none
+					.wrap.woocommerce .nav-tab-wrapper a{
+						display:none;
+					}
+					<?php echo implode(', ', $css_selector_arr)?>
+					{
+						display: block
 					}
 
 					#wpbody {
