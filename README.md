@@ -60,9 +60,9 @@ Installation via Composer. Instructions to setup the `composer.json`.
 require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 ```
 
-3. Then initialize the library with `\WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance()` from within the main plugin class. Probably the best place is inside the hook `plugins_loaded`. If the main class is already being loaded with that hook, you can simply load the library in the class constructor.
+3. Then initialize the library with `\WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance()` from within the main plugin class. Probably the best place is inside the hook `plugins_loaded`. If the main class is already being loaded with that hook, you can simply load the library in the class constructor. Try to remember to only run it inside a `is_admin()` check.
 > [!NOTE]  
-> Try to remember to only run it inside a `is_admin()` check.
+> Most probably, you won't even need to initialize it because it should have been initialized already by some other library.
 
 *Example:*
 
