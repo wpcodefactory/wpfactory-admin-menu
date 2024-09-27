@@ -21,8 +21,22 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WC_Settings_Menu_Item_Swapp
 	 */
 	class WC_Settings_Menu_Item_Swapper {
 
+		/**
+		 * $args.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @var array
+		 */
 		protected $args = array();
 
+		/**
+		 * Initialized.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @var bool
+		 */
 		protected $initialized = false;
 
 		function swap( $args = null ) {
