@@ -84,7 +84,7 @@ class Main_Plugin_Class(){
 
 ## Methods
 
-### `add_wc_settings_tab_as_submenu_item( array $args = null )`
+### `move_wc_settings_tab_to_wpfactory_menu( array $args = null )`
 
 Adds WooCommerce Settings tab as a WPFactory submenu item.
 
@@ -101,8 +101,8 @@ Adds WooCommerce Settings tab as a WPFactory submenu item.
 ```php
 if ( is_admin() ) {
     $wpf_admin_menu = \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
-    if ( method_exists( $wpf_admin_menu, 'add_wc_settings_tab_as_submenu_item' ) ) {
-        $wpf_admin_menu->add_wc_settings_tab_as_submenu_item( array(
+    if ( method_exists( $wpf_admin_menu, 'move_wc_settings_tab_to_wpfactory_menu' ) ) {
+        $wpf_admin_menu->move_wc_settings_tab_to_wpfactory_menu( array(
             'wc_settings_tab_id' => 'alg_wc_cost_of_goods',
             'menu_title'         => 'Cost of Goods',
         ) );
@@ -110,4 +110,4 @@ if ( is_admin() ) {
 }
 ```
 > [!NOTE]  
-> It's a good idea to check if the method exists with `method_exists( $wpf_admin_menu, 'add_wc_settings_tab_as_submenu_item' )` to make sure it will be compatible with previous versions.
+> It's a good idea to check if the method exists with `method_exists( $wpf_admin_menu, 'move_wc_settings_tab_to_wpfactory_menu' )` to make sure it will be compatible with previous versions.
