@@ -74,7 +74,6 @@ add_action( 'plugins_loaded', function(){
 
 ```php
 class Main_Plugin_Class(){
-
     function __construct() { 
         if ( is_admin() ) {
             \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
