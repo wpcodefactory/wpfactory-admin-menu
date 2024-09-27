@@ -52,6 +52,37 @@ Installation via Composer. Instructions to setup the `composer.json`.
 }
 ```
 
+## How to use it?
+1. Create/Put the composer.json on the root folder.
+
+2. Require the Composer `autoload.php` on main plugin file. Most of our plugins are already doing it. Example:
+```php
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+```
+
+3. Then initialize the library with `\WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance()` from within the main plugin class. Probably the best place is inside the hook `plugins_loaded`. If the main class is already being loaded with that hook, you can simply load the library in the class constructor.
+> [!NOTE]  
+> Try to remember to only run it inside a `is_admin()` check.
+
+*Example:*
+
+```php
+add_action( 'plugins_loaded', function(){  
+    $main_plugin_class = new Main_Plugin_Class();  
+} );
+```
+
+```php
+class Main_Plugin_Class(){
+
+    function __construct() { 
+        if ( is_admin() ) {
+            \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
+        }
+    }
+}
+```
+
 ## Methods
 
 ### `add_wc_settings_tab_as_submenu_item( array $args = null )`
@@ -66,7 +97,7 @@ Adds WooCommerce Settings tab as a WPFactory submenu item.
 * **`capability`** (string) - Capability string used on `add_submenu_page()`. Default value: 'manage_options'.
 * **`position`** (int) - Position used on `add_submenu_page()`. Default value: `30`.
 
-## Full example
+**Example:**
 
 ```php
 if ( ! is_admin() ) {
