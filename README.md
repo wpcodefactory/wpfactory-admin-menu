@@ -109,3 +109,5 @@ if ( is_admin() ) {
     }
 }
 ```
+> [!NOTE]  
+> It's a good idea to check if the method exists with `method_exists( $wpf_admin_menu, 'add_wc_settings_tab_as_submenu_item' )` to make sure it will be compatible with previous versions.
