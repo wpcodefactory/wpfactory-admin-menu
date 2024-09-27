@@ -10,7 +10,7 @@
 
 ## [1.0.1] - 2024-09-19
 ### Added
-* Method `add_wc_settings_menu_item()` with the possibility of adding specific WooCommerce settings tabs as WPFactory submenu items.
+* Method `move_wc_settings_tab_to_wpfactory_menu()` with the possibility of adding specific WooCommerce settings tabs as WPFactory submenu items.
 * Version property.
 * Translation files.
 
