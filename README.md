@@ -102,7 +102,7 @@ Adds WooCommerce Settings tab as a WPFactory submenu item.
 if ( ! is_admin() ) {
   return;
 }
-$wpf_admin_menu = WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
+$wpf_admin_menu = \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
 $wpf_admin_menu->add_wc_settings_tab_as_submenu_item( array(
   'wc_settings_tab_id' => 'alg_wc_left_to_free_shipping',
   'menu_title'         => 'Left For Free Shipping',
