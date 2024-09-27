@@ -135,15 +135,17 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 				'position'           => 30,
 			) );
 			$replacement_menu_item_slug = 'admin.php?page=wc-settings&tab=' . $args['wc_settings_tab_id'];
-			\add_submenu_page(
-				$this->menu_slug,
-				$args['menu_title'],
-				$args['menu_title'],
-				$args['capability'],
-				$replacement_menu_item_slug,
-				'',
-				$args['position']
-			);
+			add_action( 'admin_menu', function () use ( $args, $replacement_menu_item_slug ) {
+				\add_submenu_page(
+					$this->menu_slug,
+					$args['menu_title'],
+					$args['menu_title'],
+					$args['capability'],
+					$replacement_menu_item_slug,
+					'',
+					$args['position']
+				);
+			} );
 			$this->wc_settings_menu_item_swapper->swap( array(
 				'wc_settings_tab_id'         => $args['wc_settings_tab_id'],
 				'replacement_menu_item_slug' => $replacement_menu_item_slug,
