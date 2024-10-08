@@ -8,6 +8,14 @@
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities
 
+## [1.0.2] - 2024-10-08
+### Changed
+* Visibility from settings tabs to hidden by default when accessing the current plugin settings page.
+
+### Added
+* Flag `$show_current_plugin_tab` on `WC_Settings_Menu_Item_Swapper:hide_wc_settings_tabs()` to show/hide current plugin tab.
+* Method `add_submenu_page()`.
+
 ## [1.0.1] - 2024-09-19
 ### Added
 * Method `move_wc_settings_tab_to_wpfactory_menu()` with the possibility of adding specific WooCommerce settings tabs as WPFactory submenu items.
