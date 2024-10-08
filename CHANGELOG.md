@@ -11,6 +11,7 @@
 ## [1.0.2] - 2024-10-08
 ### Changed
 * Visibility from settings tabs to hidden by default when accessing the current plugin settings page.
+* Default `page_title` param set from `menu_title` param when using the `move_wc_settings_tab_to_wpfactory_menu()` method.
 
 ### Added
 * Flag `$show_current_plugin_tab` on `WC_Settings_Menu_Item_Swapper:hide_wc_settings_tabs()` to show/hide current plugin tab.

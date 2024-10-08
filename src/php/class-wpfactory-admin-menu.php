@@ -116,7 +116,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		/**
 		 * Moves WooCommerce Settings tab to WPFactory menu as a submenu item.
 		 *
-		 * @version 1.0.1
+		 * @version 1.0.2
 		 * @since   1.0.0
 		 *
 		 * @param $args
@@ -129,11 +129,14 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 			}
 			$args                       = wp_parse_args( $args, array(
 				'wc_settings_tab_id' => '',
-				'page_title'         => __( 'WPFactory plugins settings', 'wpfactory-admin-menu' ),
+				'page_title'         => '',
 				'menu_title'         => '',
 				'capability'         => 'manage_options',
 				'position'           => 30,
 			) );
+			if ( empty( $args['page_title'] ) ) {
+				$args['page_title'] = $args['menu_title'];
+			}
 			$replacement_menu_item_slug = 'admin.php?page=wc-settings&tab=' . $args['wc_settings_tab_id'];
 			add_action( 'admin_menu', function () use ( $args, $replacement_menu_item_slug ) {
 				\add_submenu_page(
