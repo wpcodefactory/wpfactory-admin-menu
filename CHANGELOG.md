@@ -8,6 +8,10 @@
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities
 
+## [1.0.3] - 2024-10-14
+### Fixed
+* Capability to `manage_woocommerce` if woocommerce is enabled, or else `manage_options`.
+
 ## [1.0.2] - 2024-10-08
 ### Changed
 * Visibility from settings tabs to hidden by default when accessing the current plugin settings page.
