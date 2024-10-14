@@ -22,7 +22,7 @@ Installation via Composer. Instructions to setup the `composer.json`.
 ```json
 "require": {  
   "wpfactory/wpfactory-admin-menu": "*"
-},
+}
 ```
 
 3. Use `preferred-install` parameter set as `dist` on `config`.
@@ -37,7 +37,7 @@ Installation via Composer. Instructions to setup the `composer.json`.
 ```json
 "replace": {
   "wpfactory/wpfactory-admin-menu": "*"
-},
+}
 ``` 
 
 **Full Example:**
