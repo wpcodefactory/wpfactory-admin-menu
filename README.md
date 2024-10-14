@@ -36,8 +36,8 @@ Installation via Composer. Instructions to setup the `composer.json`.
 
 ```json
 "replace": {
-    "wpfactory/wpfactory-admin-menu": "*"
-  },
+  "wpfactory/wpfactory-admin-menu": "*"
+},
 ``` 
 
 **Full Example:**
