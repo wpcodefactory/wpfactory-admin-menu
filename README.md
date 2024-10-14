@@ -32,6 +32,13 @@ Installation via Composer. Instructions to setup the `composer.json`.
   "preferred-install": "dist"
 }
 ```
+4. If you're loading it on the pro version of a plugin, you're probably loading it on the free version already, so to avoid that, add the `replace` node to your `composer.json` pro version.
+
+```json
+"replace": {
+    "wpfactory/wpfactory-admin-menu": "*"
+  },
+``` 
 
 **Full Example:**
 
