@@ -100,7 +100,7 @@ Adds WooCommerce Settings tab as a WPFactory submenu item.
 * **`wc_settings_tab_id`** (string) - The WooCommerce tab id from the settings page. Ex: From a settings tab such as `wp-admin/admin.php?page=wc-settings&tab=alg_wc_cost_of_goods`, the id would be `alg_wc_cost_of_goods`.
 * **`menu_title`** (string) - The submenu item label displayed on WPFactory menu.
 * **`page_title`** (string) - The title displayed above the new settings page. Default value: `'WPFactory plugins settings'`.
-* **`capability`** (string) - Capability string used on `add_submenu_page()`. Default value: 'class_exists( 'WooCommerce' ) ? 'manage_woocommerce' : 'manage_options''.
+* **`capability`** (string) - Capability string used on `add_submenu_page()`. Default value: `'class_exists( 'WooCommerce' ) ? 'manage_woocommerce' : 'manage_options'`.
 * **`position`** (int) - Position used on `add_submenu_page()`. Default value: `30`.
 
 **Example:**
