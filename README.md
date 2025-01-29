@@ -62,12 +62,7 @@ Installation via Composer. Instructions to setup the `composer.json`.
 ## How to use it?
 1. Create/Put the composer.json on the root folder.
 
-2. Require the Composer `autoload.php` on main plugin file. Most of our plugins are already doing it. Example:
-```php
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-```
-
-3. Then initialize the library with `\WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance()` from within the main plugin class. Probably the best place is inside the hook `plugins_loaded`. If the main class is already being loaded with that hook, you can simply load the library in the class constructor. Try to remember to only run it inside a `is_admin()` check.
+2. Then initialize the library with `\WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance()` from within the main plugin class. Probably the best place is inside the hook `plugins_loaded`. If the main class is already being loaded with that hook, you can simply load the library in the class constructor. Try to remember to only run it inside a `is_admin()` check.
 > [!NOTE]  
 > Most probably, you won't even need to initialize it because it should have been initialized already by some other library.
 
@@ -83,6 +78,7 @@ add_action( 'plugins_loaded', function(){
 class Main_Plugin_Class(){
     function __construct() { 
         if ( is_admin() ) {
+            require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
             \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
         }
     }
