@@ -30,7 +30,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		 *
 		 * @var string
 		 */
-		protected $version = '1.0.3';
+		protected $version = '1.0.4';
 
 		/**
 		 * Menu slug.
