@@ -8,6 +8,19 @@
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities
 
+## [1.0.4] - 2025-06-11
+### Fixed
+* Compatibility with WooCommerce 9.9.
+### Added
+* Parameter `plugin_icon` with its own parameters args (`url`, `style`, `width`) . Example: 
+```php
+'plugin_icon' => array(
+  'url'   => 'https://ps.w.org/product-quantity-for-woocommerce/assets/icon.svg?rev=2971558',
+  'style' => 'margin-top:-5px;',
+  'width' => 35,
+)
+```
+
 ## [1.0.3] - 2024-10-14
 ### Fixed
 * Capability to `manage_woocommerce` if woocommerce is enabled, or else `manage_options`.

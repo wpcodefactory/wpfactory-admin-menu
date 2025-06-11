@@ -96,6 +96,10 @@ Adds WooCommerce Settings tab as a WPFactory submenu item.
 * **`wc_settings_tab_id`** (string) - The WooCommerce tab id from the settings page. Ex: From a settings tab such as `wp-admin/admin.php?page=wc-settings&tab=alg_wc_cost_of_goods`, the id would be `alg_wc_cost_of_goods`.
 * **`menu_title`** (string) - The submenu item label displayed on WPFactory menu.
 * **`page_title`** (string) - The title displayed above the new settings page. Default value: `'WPFactory plugins settings'`.
+* **`plugin_icon`** (array) - Sets the plugin icon. Default value: `Array()`.
+* * **`url`** (array) - The plugin icon URL. Default value: `''`.
+* * **`style`** (array) - The plugin icon inline style. Use it to fine tune the icon if necessary. Default value: `''`. Example: `margin-top:-5px;`
+* * **`width`** (array) - The plugin icon width. Default value: `35`.
 * **`capability`** (string) - Capability string used on `add_submenu_page()`. Default value: `'class_exists( 'WooCommerce' ) ? 'manage_woocommerce' : 'manage_options'`.
 * **`position`** (int) - Position used on `add_submenu_page()`. Default value: `30`.
 
