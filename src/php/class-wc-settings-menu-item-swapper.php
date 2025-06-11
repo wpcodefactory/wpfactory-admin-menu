@@ -108,7 +108,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WC_Settings_Menu_Item_Swapp
 				$plugin_icon_style_html = $first_item['plugin_icon']['style'];
 				$plugin_icon_html = ! empty( $plugin_icon_url ) ? '<img style="'.esc_attr( $plugin_icon_style_html ).'". class="wpfam-plugin-icon" src="' . esc_url( $plugin_icon_url ) . '" width="' . esc_attr( $plugin_icon_width ) . '">' : '';
 				if ( ! empty( $page_title ) ) {
-					echo '<div class="wrap"><div class="woocommerce-layout__header"><div class="wpfam-plugin-title-wrapper"><h1 class="wpfam-plugin-title">' . $plugin_icon_html.esc_html( $page_title ) . '</h1></div></div></div>';
+					echo '<div class="wrap"><div class="woocommerce-layout__header"><div class="wpfam-plugin-title-wrapper"><h1 class="wpfam-plugin-title">' . $plugin_icon_html . esc_html( $page_title ) . '</h1></div></div></div>';
 				}
 			}
 		}
