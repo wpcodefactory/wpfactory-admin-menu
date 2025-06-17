@@ -97,9 +97,14 @@ Adds WooCommerce Settings tab as a WPFactory submenu item.
 * **`menu_title`** (string) - The submenu item label displayed on WPFactory menu.
 * **`page_title`** (string) - The title displayed above the new settings page. Default value: `'WPFactory plugins settings'`.
 * **`plugin_icon`** (array) - Sets the plugin icon. Default value: `Array()`.
-* * **`url`** (array) - The plugin icon URL. Default value: `''`.
-* * **`style`** (array) - The plugin icon inline style. Use it to fine tune the icon if necessary. Default value: `''`. Example: `margin-top:-5px;`
-* * **`width`** (array) - The plugin icon width. Default value: `35`.
+* * **`url`** (string) - The plugin icon URL. Default value: `''`.
+* * **`style`** (string) - The plugin icon inline style. Use it to fine tune the icon if necessary. Default value: `''`. Example: `margin-top:-5px;`
+* * **`width`** (string) - The plugin icon width. Default value: ``.
+* * **`height`** (string) - The plugin icon height. Default value: `36`.
+* * **`wporg_plugin_slug`** (string) - The plugin icon slug from wp.org. Default value: ``.
+* * **`get_url_method`** (string) - Get URL method. Default value: `manual`.
+* * * If set as `manual`, it will require the `url` parameter. 
+* * * If set as `wporg_plugins_api` it will require the `wporg_plugin_slug` so it can get the url automatically. 
 * **`capability`** (string) - Capability string used on `add_submenu_page()`. Default value: `'class_exists( 'WooCommerce' ) ? 'manage_woocommerce' : 'manage_options'`.
 * **`position`** (int) - Position used on `add_submenu_page()`. Default value: `30`.
 

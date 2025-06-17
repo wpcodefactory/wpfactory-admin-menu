@@ -8,6 +8,19 @@
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities
 
+## [1.0.6] - 2025-06-17
+### Changed
+* Plugin icon default margin right to 5px.
+* Now Setting default height instead of width.
+## Added
+* Subparameters for `plugin_icon` param: `get_url_method`, and `wporg_plugin_slug`. Example:
+```php
+'plugin_icon' => array(
+    'get_url_method'    => 'wporg_plugins_api',
+    'wporg_plugin_slug'   => 'cost-of-goods-for-woocommerce',    
+)
+```
+
 ## [1.0.5] - 2025-06-11
 ### Fixed
 * Missing `plugin_icon` parameter php warning.
@@ -19,9 +32,9 @@
 * Parameter `plugin_icon` with its own parameters args (`url`, `style`, `width`) . Example: 
 ```php
 'plugin_icon' => array(
-  'url'   => 'https://ps.w.org/product-quantity-for-woocommerce/assets/icon.svg?rev=2971558',
-  'style' => 'margin-top:-5px;',
-  'width' => 35,
+    'url'   => 'https://ps.w.org/product-quantity-for-woocommerce/assets/icon.svg?rev=2971558',
+    'style' => 'margin-top:-5px;',
+    'width' => 35,
 )
 ```
 
