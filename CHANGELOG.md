@@ -8,6 +8,10 @@
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities
 
+## [1.0.7] - 2025-06-18
+### Fixed
+* Img was still getting the width set.
+
 ## [1.0.6] - 2025-06-17
 ### Changed
 * Plugin icon default margin right to 5px.
