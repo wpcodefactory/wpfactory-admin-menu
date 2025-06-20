@@ -8,6 +8,12 @@
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities
 
+## [1.0.8] - 2025-06-20
+### Fixed
+* Some notices that were being displayed in the wrong place.
+### Added
+* `is-scrolled` class on `wpfam-woocommerce-layout__header` to replicate WooCommerce`s behaviour.
+
 ## [1.0.7] - 2025-06-18
 ### Fixed
 * Img was still getting the width set.
