@@ -99,9 +99,9 @@ Adds WooCommerce Settings tab as a WPFactory submenu item.
 * **`plugin_icon`** (array) - Sets the plugin icon. Default value: `Array()`.
 * * **`url`** (string) - The plugin icon URL. Default value: `''`.
 * * **`style`** (string) - The plugin icon inline style. Use it to fine tune the icon if necessary. Default value: `''`. Example: `margin-top:-5px;`
-* * **`width`** (string) - The plugin icon width. Default value: ``.
+* * **`width`** (string) - The plugin icon width. Default value: `''`.
 * * **`height`** (string) - The plugin icon height. Default value: `36`.
-* * **`wporg_plugin_slug`** (string) - The plugin slug from wp.org. Default value: ``.
+* * **`wporg_plugin_slug`** (string) - The plugin slug from wp.org. Default value: `''`.
 * * **`get_url_method`** (string) - Get URL method. Default value: `manual`.
 * * * If set as `manual`, it will require the `url` parameter. 
 * * * If set as `wporg_plugins_api` it will require the `wporg_plugin_slug` so it can get the url automatically. 
