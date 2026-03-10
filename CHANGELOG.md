@@ -8,6 +8,10 @@
 * `Fixed` for any bug fixes.
 * `Security` in case of vulnerabilities
 
+## [1.0.9] - 2026-03-10
+### Fixed
+* 
+
 ## [1.0.8] - 2025-06-20
 ### Fixed
 * Some notices that were being displayed in the wrong place.
